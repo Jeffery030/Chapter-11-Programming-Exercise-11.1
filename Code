@@ -1,0 +1,50 @@
+public class Triangle extends GeometricObject {
+    private double side1, side2, side3;
+
+    // Default constructor
+    public Triangle() {
+        side1 = side2 = side3 = 1.0; // Default sides to 1.0
+    }
+
+    // Constructor with specified sides
+    public Triangle(double s1, double s2, double s3) {
+        side1 = s1;
+        side2 = s2;
+        side3 = s3;
+    }
+
+    // Getters
+    public double getSide1() { return side1; }
+    public double getSide2() { return side2; }
+    public double getSide3() { return side3; }
+
+    // Calculate perimeter
+    public double getPerimeter() {
+        return side1 + side2 + side3;
+    }
+
+    // Calculate area using Heron's formula
+    public double getArea() {
+        double s = getPerimeter() / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    // toString method
+    public String toString() {
+        return "Triangle: side1 = " + side1 + ", side2 = " + side2 + ", side3 = " + side3;
+    }
+
+    // Main method to test the class
+    public static void main(String[] args) {
+        Triangle t1 = new Triangle(); // Default triangle
+        Triangle t2 = new Triangle(3, 4, 5); // Triangle with given sides
+
+        System.out.println(t1);
+        System.out.println("Area: " + t1.getArea());
+        System.out.println("Perimeter: " + t1.getPerimeter());
+
+        System.out.println("\n" + t2);
+        System.out.println("Area: " + t2.getArea());
+        System.out.println("Perimeter: " + t2.getPerimeter());
+    }
+}
